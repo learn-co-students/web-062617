@@ -1,3 +1,4 @@
+
 class Note
   attr_reader :name, :duration
   attr_accessor :song
@@ -11,11 +12,9 @@ class Note
   end
 
   def play
-    mp3 = Gosu::Sample.new()
-    # Dir.pwd # "/Users/flatironschool/Dropbox/web-0626/04-song-app"
-    # pass through the correct file
-    playing = mp3.play
-    # sleep
+    mp3 = Gosu::Sample.new("/Users/Snigdha/Development/code/062617/04-song-app/lib/notes/#{self.name.upcase}1.wav")     
+    playing = mp3.play(1)
+    sleep(self.duration)
     playing.stop
 
     # 1. play the note
