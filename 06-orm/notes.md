@@ -1,12 +1,27 @@
-Remember we noticed this between objects and sql
+ruby       sql
+class  ->  table
+instance -> row
+attribute -> column
+method -> query
 
-Tables -> Classes
-Rows -> Objects
+persons
 
-Our aspiration is to just do this  
+id | name | hometown
 
-So with an orm, I am using what I know about objects to contruct sql statements
 
-question marks and why I care -
-OR DROP TABLE USERS
-  Show them how forms interact with espn. 
+class Person
+  attr_accessor :id, :name, :hometown
+end
+
+sql   
+  more agnostic to the language that you are using
+
+
+ruby
+
+Book.all
+Book.find()
+Book.create
+book.destroy
+book.insert
+book.update
