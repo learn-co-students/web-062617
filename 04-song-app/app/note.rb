@@ -15,7 +15,7 @@ class Note
     # Dir.pwd # "/Users/flatironschool/Dropbox/web-0626/04-song-app"
     # pass through the correct file
     playing = mp3.play
-    # sleep
+     sleep 1
     playing.stop
 
     # 1. play the note
