@@ -60,4 +60,20 @@ id | name
   #
 
 
-TODO: update, create_table, insert
+TODO: update, create_table
+new_from_row
+
+
+know how objects talk to each other
+ book.author
+ author.genres
+
+ select
+ map
+
+ initialize
+
+ methods are the public interface to my objects
+ difference btwn a method and an instance variable
+
+ 
