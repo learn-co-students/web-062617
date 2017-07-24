@@ -26,6 +26,8 @@
 
 ### form_tag
 
+```
+
 <%= form_tag drinks_path do %>
   <%= label_tag :name %>
   <%= text_field_tag :'drinks[:name]' %>
@@ -33,6 +35,8 @@
   <%= text_field_tag :'drinks[:price]' %>
   <%= submit_tag "Create Drink" %>
 <% end %>
+
+```
 
 
 **Note**
