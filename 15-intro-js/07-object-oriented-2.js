@@ -7,8 +7,7 @@
     ✓ Methods
     ✓ Variables
     ✓ Closures (private variables)
-    * Immediately Invoked Function Expressions
-      (function() { return 5 })()
+    ✓ Immediately Invoked Function Expressions
     * Object relations
   * Document Object Model
     * Parsing HTML to create objects
@@ -79,7 +78,7 @@ const Dessert = (function createDessert() {
     }
 
     // class method in ruby
-    // def self.method
+    // def self.all
     //    puts self // class itself
     // end
 
@@ -92,17 +91,6 @@ const Dessert = (function createDessert() {
 
 // let instances = []
 // Dessert.instances = []
-
-// Dessert = {
-//   instances: [],
-//   ...
-// }
-
-
-// How do we make instances private?
-// Creating private variable. Using closures?!
-// ...
-
 
 
 // What is the `new` keyword doing?
