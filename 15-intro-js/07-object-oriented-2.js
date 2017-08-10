@@ -1,72 +1,113 @@
 /**
-  * Review
-    * Function Constructor syntax
-    * Class syntax
-    * Prototypes
+  ✓ Review
+    ✓ Function Constructor syntax
+    ✓ Class syntax
+    ✓ Prototypes
   * Instance and classes
-    * Methods
-    * Variables
-    * Closures (private variables)
+    ✓ Methods
+    ✓ Variables
+    ✓ Closures (private variables)
+    * Immediately Invoked Function Expressions
+      (function() { return 5 })()
     * Object relations
+  * Document Object Model
+    * Parsing HTML to create objects
+    * Object types
+    * Create, Read, Update, Delete
 **/
 
+// Our Domain –– Deserts!!
 // cookie                   ['flour', 'sugar', 'butter', 'eggs']
 // cherry pie               ['cherries', 'flour', 'butter', 'sugar']
 // lemon meringue           [egg whites, lemon, sugar]
 // peanut butter mousse     [peanut butter, cream]
 
 // OLD WAY – Function Constructor
-
-// Dessert
-// create a function that returns a dessert object with a name and a list of ingredients
+// // Constructor method
+// // cookie = new Dessert('cookie', ['flour', 'sugar', 'butter', 'eggs'])
 // function Dessert(name, ingredients) {
 //   this.name = name
 //   this.ingredients = ingredients
 // }
 //
-// function prepare() {
-//   console.log(`Preparing ${this.name}`);
-// }
-// prepare()
 //
 // // Instance method
+// // cookie.cook()
 // Dessert.prototype.cook = function() {
 //   console.log(`${this.name} is cooked!`);
 // }
 //
-// // cookie.cook()
 //
 // // Class methods
+// // Dessert.buyGroceries()
 // Dessert.buyGroceries = function() {
 //   console.log('buying groceries')
 // }
 
-// Dessert.buyGroceries()
-
 
 //  NEW WAY – Class syntax
+const Dessert = (function createDessert() {
+  let counter = 0
+  let instances = []
 
+  return class Dessert {
 
-class Dessert {
+    // Constructor method
+    // cookie = new Dessert('cookie', ['flour', 'sugar', 'butter', 'eggs'])
+    constructor(name, ingredients) {
+      this.id = ++counter
+      this.name = name
+      this.ingredients = ingredients
+      instances.push(this)
+    }
 
-  constructor(name, ingredients) {
-    this.id = 0
-    this.name = name
-    this.ingredients = ingredients
-    Dessert.all().push(this)
+    // Instance methods
+    // cookie.cook()
+    cook() {
+      console.log(`${this.name} is cooked!`);
+    }
+
+    // Class methods
+    // Dessert.buyGroceries()
+    static buyGroceries() {
+      console.log('buying groceries')
+    }
+
+    // Dessert.all()
+    static all() {
+      return instances
+    }
+
+    // class method in ruby
+    // def self.method
+    //    puts self // class itself
+    // end
+
+    // Dessert.last()
+    static last() {
+      return counter
+    }
   }
+})()
 
-  cook() {
-    console.log(`${this.name} is cooked!`);
-  }
+// let instances = []
+// Dessert.instances = []
 
-  static buyGroceries() {
-    console.log('buying groceries')
-  }
+// Dessert = {
+//   instances: [],
+//   ...
+// }
 
-  // static last() {
-  // }
 
-  static all() {
-  }
-}
+// How do we make instances private?
+// Creating private variable. Using closures?!
+// ...
+
+
+
+// What is the `new` keyword doing?
+// cookie = new Dessert('cookie', ['flour', 'sugar', 'butter', 'eggs'])
+// 1. Create a new object `{}`
+// 2. Attach the Dessert prototype
+// 3. Calling the constructor function BOUND TO THE NEW OBJECT
+// 4. Returning the new object
