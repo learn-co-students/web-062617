@@ -9,10 +9,6 @@
     ✓ Closures (private variables)
     ✓ Immediately Invoked Function Expressions
     * Object relations
-  * Document Object Model
-    * Parsing HTML to create objects
-    * Object types
-    * Create, Read, Update, Delete
 **/
 
 // Our Domain –– Deserts!!
