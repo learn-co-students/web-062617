@@ -1,6 +1,6 @@
 // Wait for the entire document to load before executing code / attaching listeners
 document.addEventListener('DOMContentLoaded', function() {
-  
+
   // Render main app template (defined in App class definition)
   App.render('main', App.template())
 
@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
   taskFormContainerEl.addEventListener('submit', addTaskHandler)
   listDeleteContainerEl.addEventListener('click', deleteListHandler)
   taskDeleteContainerEl.addEventListener('click', deleteTaskHandler)
-
 })
 
 // This is a parent too all other components
@@ -26,8 +25,8 @@ class App {
     return `
       <h1>Task Lister</h1>
       <div id="list-form-container">${ListForm.render()}</div>
-      <div id="lists-container"></div>
       <div id="task-form-container"></div>
+      <div id="lists-container"></div>
       `
   }
 
