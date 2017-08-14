@@ -6,13 +6,14 @@
   </head>
   <body>
     <h1>Task Lister</h1>
-    <form id="add-form">
-      <label for="add-list">add a list</label>
-      <input type="text" id="add-list" name="list_name">
+    <!-- Create a component of the list form as well! -->
+    <form id="list-form">
+      <label for="list-title">add a list</label>
+      <input type="text" id="list-title" name="list_name">
       <input type="submit" value="add (+)">
     </form>
-    <div id="all-lists">
-      <!-- My rendered lists will go here -->
-    </div>
+
+    <div id="task-form-container"></div>
+    <div id="all-lists"></div>
   </body>
 </html>
