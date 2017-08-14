@@ -2,18 +2,21 @@
 <html>
   <head>
     <title>Task Lister</title>
-    <script src="./app.js"></script>
   </head>
   <body>
-    <h1>Task Lister</h1>
-    <!-- Create a component of the list form as well! -->
-    <form id="list-form">
-      <label for="list-title">add a list</label>
-      <input type="text" id="list-title" name="list_name">
-      <input type="submit" value="add (+)">
-    </form>
 
-    <div id="task-form-container"></div>
-    <div id="all-lists"></div>
+    <!-- App renders in `main` -->
+    <main></main>
+
+    <!-- JavaScript files loaded below this line -->
+    <script src="./components/TaskForm.js"></script>
+    <script src="./components/Task.js"></script>
+
+    <script src="./components/ListForm.js"></script>
+    <script src="./components/List.js"></script>
+
+    <script src="./handlers.js"></script>
+    <script src="./app.js"></script>
+
   </body>
 </html>
