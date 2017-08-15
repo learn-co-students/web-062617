@@ -1,7 +1,13 @@
+/*
+
+This is basic "functional JavaScript"
+
 rawFood = [🌽, 🐄, 🥚]                       //=> [🌽, 🐄, 🥚]
 cookedFood = arr.map(cook)                  //=> [🍿, 🍔, 🍳] transforming values and returning array
 vegetarianFood = arr.filter(isVegetarian)   //=> [🍿, 🍳]     subset of the array values that meet condition
 energy = arr.reduce(eat)                    //=> ⚡️ || 💩
+
+*/
 
 // Implement forEach (take an array, take a function)
 // Call function for each item in the array
