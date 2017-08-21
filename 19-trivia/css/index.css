@@ -1,0 +1,7 @@
+[data-correct-answer='true'] {
+  background-color: lightblue;
+}
+
+[data-correct-answer='false'] {
+  background-color: pink;
+}

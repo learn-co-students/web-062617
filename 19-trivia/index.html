@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Trivia Questions</title>
+    <link rel="stylesheet" href="./css/index.css">
+  </head>
+  <body>
+    <main id="main-page">
+      <button class="game" data-difficulty="easy">Start easy Game</button>
+      <button class="game" data-difficulty="medium">Start medium Game</button>
+      <button class="game" data-difficulty="hard">Start hard Game</button>
+    </main>
+
+    <!-- External Libraries -->
+    <script src="http://code.jquery.com/jquery-3.2.1.js" charset="utf-8"></script>
+
+    <!-- Adapters -->
+    <script src="./js/adapters/game_adapter.js" charset="utf-8"></script>
+
+    <!-- Controllers / Event handlers -->
+    <script src="./js/controllers/questions_controller.js" charset="utf-8"></script>
+    <script src="./js/controllers/games_controller.js" charset="utf-8"></script>
+
+    <!-- Models / Classes -->
+    <script src="./js/models/question_model.js" charset="utf-8"></script>
+    <script src="./js/models/game_model.js" charset="utf-8"></script>
+
+    <!-- App Entry / Main app-->
+    <script src="./js/index.js" charset="utf-8"></script>
+  </body>
+</html>
