@@ -54,7 +54,8 @@ What makes React and its Virtual DOM so different is that it's simpler than othe
 
 Create a project folder, call it whatever you'd like.
 
-`mkdir src && build`
+`mkdir src build`
+
 
 What we are doing here is pretty simple. Inside our src folder, we will place all of our unoptimized and unconverted JSX, JavaScript, and other script-related content. In other words, this is where the code you are writing and actively working on will live. Inside our build folder, we will place the result of running our various build tools on the script files found inside the src folder. This is where Babel will convert all of our JSX files into JS. This is also where webpack will resolve any dependencies between our script files and place all of the important script content into a single JavaScript file.
 
@@ -64,7 +65,7 @@ What we are doing here is pretty simple. Inside our src folder, we will place al
 
 ### HTML in JS ???
 
-`touch ./src/index.jsx`
+`touch ./src/index.js`
 
 **What is JSX**
 
@@ -77,6 +78,8 @@ Just like XML, JSX tags have a tag name, attributes, and children. If an attribu
 Reserved words in JS - remember JSX has its own attributes to combat with these words.
 
 ### Webpack setup
+
+`npm init`
 
 First install Webpack and the dev server -
 
@@ -108,7 +111,7 @@ module.exports = config
 
 Next we need Babel to help us write the newest and coolest JS available!
 
-The last piece in our current setup is to transform our index.jsx file to become regular JavaScript in the form of myCode.js. This is where Babel comes in. To install Babel, let's go back to our trusty Terminal / Command Prompt and enter the following Node.js command:
+The last piece in our current setup is to transform our index.js file to become regular JavaScript in the form of myCode.js. This is where Babel comes in. To install Babel, let's go back to our trusty Terminal / Command Prompt and enter the following Node.js command:
 
 `npm install babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-1 --save`
 
@@ -243,5 +246,6 @@ class MyComponent extends Component {
 ReactDOM.render(<MyComponent />, document.getElementById('root'))
 ```
 ## Extra Readings
+* [All ReactJS Fundamentals](https://medium.freecodecamp.org/all-the-fundamental-react-js-concepts-jammed-into-this-single-medium-article-c83f9b53eac2)
 * [Setting up React](https://www.kirupa.com/react/setting_up_react_environment.htm)
 * [Benefits of the Virtual Dom](https://www.accelebrate.com/blog/the-real-benefits-of-the-virtual-dom-in-react-js)
