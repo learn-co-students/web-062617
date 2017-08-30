@@ -17,6 +17,29 @@ class App extends Component {
     inputText: ""
   }
 
+
+
+  deleteTodo = (todo) => {
+
+    console.log("This", this)
+    //
+    // const newTodos = this.state.todos.filter((element) => {
+    //   return element.task !== todo
+    // })
+
+    const indexToFind = this.state.todos.findIndex((element) => {
+      return element.task == todo
+    })
+
+    const newTodos = [...this.state.todos.slice(0, indexToFind), ...this.state.todos.slice(indexToFind + 1)]
+
+
+    this.setState({
+      todos: newTodos
+    })
+
+  }
+
   handleSubmit = (event) => {
     event.preventDefault()
     console.log(event)
@@ -36,15 +59,21 @@ class App extends Component {
 
   }
 
+
+  beef(event) {
+    event.preventDefault()
+    console.log("Printing this", this)
+  }
+
   render() {
     console.log("What is state", this.state)
     return (
       <div className="App">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.beef}>
           <input type="text" onChange={this.handleChange} value={this.state.inputText}/>
           <input type="submit" value="Submit"/>
         </form>
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} deleteTodo={this.deleteTodo} />
       </div>
     );
   }

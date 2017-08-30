@@ -13,8 +13,18 @@ class TodoList extends React.Component {
 
   }
 
+
+  onDelete = (someValue) => {
+    this.props.deleteTodo(someValue)
+    console.log(`Deleting ${someValue} from list`)
+  }
+
+
   render() {
-    const listItems = this.props.todos.map((todo, index) => <TodoItem key={index} todo={todo.task}/>)
+
+    console.log(this.props)
+
+    const listItems = this.props.todos.map((todo, index) => <TodoItem onDelete={this.onDelete} key={index} todo={todo.task}/>)
     // RULE -> AN ARRAY OF ITEMS IN JSX / REACT MUST HAVE A key
 
     return (
