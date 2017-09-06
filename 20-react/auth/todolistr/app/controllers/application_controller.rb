@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
 
   def decoded_token(token)
     begin
-      JWT.decode(token, "beefysteak")
+      JWT.decode(token, "beefysteak") # Returns [{}, {}, {}]
     rescue JWT::DecodeError
       []
     end
