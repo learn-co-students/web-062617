@@ -1,26 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route, Redirect, Switch } from 'react-router-dom'
+
+
 import './App.css';
 import Auth from './adapters/auth'
 import LoginForm from './components/LoginForm'
-import { Route, Redirect } from 'react-router-dom'
+import Home from './components/Home'
+import testHOC from './components/hocs/testHOC'
+import authorize from './components/hocs/authorize'
+
+
 
 class App extends Component {
 
   state = {
     currentUser: {},
-    isLoggedIn: false
+    isLoggedIn: localStorage.getItem("jwt") ? true : false,
+    jwt: localStorage.getItem("jwt")
   }
 
 
   loginUser = (userParams) => {
     Auth.login(userParams)
       .then(user => {
+        localStorage.setItem('jwt', user.jwt)
         this.setState({
           currentUser: user,
           isLoggedIn: true
         })
-        localStorage.setItem('jwt', user.jwt)
+
       })
   }
 
@@ -33,12 +41,17 @@ class App extends Component {
 
   }
 
+
+
+
   render() {
-    console.log(this.state)
+    const AuthHome = authorize(Home)
     return (
       <div>
-        { localStorage.getItem('jwt') ? null : <Redirect to="/login"/>   }
-        <Route path="/login" render={() => <LoginForm onLogin={this.loginUser}/> }/>
+        <div>
+          <Route path="/home" component={AuthHome}/>
+          <Route path="/login" render={(props) => <LoginForm login={this.loginUser} {...props}/>}/>
+        </div>
       </div>
     );
   }

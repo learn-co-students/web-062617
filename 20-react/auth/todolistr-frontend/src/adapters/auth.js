@@ -17,7 +17,7 @@ class Auth {
   }
 
   static me() {
-    const jwtToken = localStorage.getItem("jwt")
+    const jwtToken = localStorage.getItem("token")
     return fetch('http://localhost:3000/api/v1/me',{
       headers:{
         "Authorization":`Bearer ${jwtToken}`,
@@ -29,7 +29,7 @@ class Auth {
 
 
   static logOut() {
-    localStorage.removeItem('jwt')
+    localStorage.removeItem('token')
   }
 }
 

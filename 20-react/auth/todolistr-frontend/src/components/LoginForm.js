@@ -1,4 +1,5 @@
 import React from 'react'
+import Auth from '../adapters/auth'
 
 
 class LoginForm extends React.Component {
@@ -12,19 +13,20 @@ class LoginForm extends React.Component {
     event.preventDefault()
 
 
-
-    console.log(this.state.usernameInput)
-    console.log(this.state.passwordInput)
     const userParams = {
       username: this.state.usernameInput,
       password: this.state.passwordInput
     }
-    this.props.onLogin(userParams)
+    Auth.login(userParams)
+      .then((user) => {
+        this.setState({
+          usernameInput: "",
+          passwordInput: ""
+        })
+        localStorage.setItem("token", user.jwt)
+        this.props.history.replace("/home")
+      })
 
-    this.setState({
-      usernameInput: "",
-      passwordInput: ""
-    })
   }
 
   handleUsernameChange = (event) => {
@@ -40,12 +42,15 @@ class LoginForm extends React.Component {
     })
   }
   render() {
+    console.log(this.props)
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" onChange={this.handleUsernameChange} value={this.state.usernameInput}/>
-        <input type="password" onChange={this.handlePasswordChange} value={this.state.passwordInput} />
-        <input type="submit" value="Signup"/>
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" onChange={this.handleUsernameChange} value={this.state.usernameInput}/>
+          <input type="password" onChange={this.handlePasswordChange} value={this.state.passwordInput} />
+          <input type="submit" value="Signup"/>
+        </form>
+      </div>
     )
   }
 }
