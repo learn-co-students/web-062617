@@ -18,10 +18,10 @@ class BooksContainer extends React.Component {
 }
 
 
-
 function mapStateToProps(state) {
+  console.log(state)
   return {
-     books: state.books
+     books: state.books.list
   }
 }
 

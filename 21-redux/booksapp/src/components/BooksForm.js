@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addBook } from '../actions/books'
+import * as BookActions from '../actions/books'
+import { bindActionCreators } from 'redux'
+
 class BooksForm extends React.Component {
   state = {
     book: ""
@@ -9,7 +11,7 @@ class BooksForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    this.props.add(this.state.book)
+    this.props.addBook(this.state.book)
     this.setState({
       book:""
     })
@@ -21,7 +23,7 @@ class BooksForm extends React.Component {
     })
   }
   render() {
-    console.log("BookForm", this.props)
+    console.log("NEW PROPS", this.props)
     return (
       <form onSubmit={this.handleSubmit}>
         <input type="text" onChange={this.handleInputChange} value={this.state.book} />
@@ -35,12 +37,8 @@ class BooksForm extends React.Component {
 
 
 function mapDispatchToProps(dispatch) {
-  return {
-    add: (book) => {
-      dispatch(addBook(book))
-    }
-  }
 
+  return bindActionCreators(BookActions, dispatch)
 }
 
 export default connect(null,mapDispatchToProps)(BooksForm)
