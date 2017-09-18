@@ -4,11 +4,12 @@ import { removeBook } from '../actions/books'
 
 
 const BooksItem = (props) => {
+  console.log(props)
   const handleClick = () => {
     props.remove(props.book.title)
   }
   return (
-    <li onClick={handleClick}>{props.book.title}</li>
+    <li onClick={handleClick}>{props.book}</li>
   )
 }
 
